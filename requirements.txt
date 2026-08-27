@@ -1,0 +1,5 @@
+numpy==2.5.0
+optuna==4.9.0
+torch==2.13.0
+torchvision==0.28.0
+matplotlib>=3.9,<4

@@ -1,0 +1,139 @@
+{
+  "architecture_choices": {
+    "degree": [
+      1,
+      2,
+      3
+    ],
+    "depth": [
+      1,
+      2
+    ]
+  },
+  "arguments": {
+    "ablation_epochs": 20,
+    "ablation_max_per_class": 300,
+    "ablation_seeds": [
+      41
+    ],
+    "allow_nondeterminism": false,
+    "beta_init": 1.0,
+    "data_root": "./data",
+    "datasets": [
+      "MNIST",
+      "FashionMNIST",
+      "KMNIST"
+    ],
+    "degrees": [
+      1,
+      2,
+      3
+    ],
+    "depths": [
+      1,
+      2
+    ],
+    "device": "cpu",
+    "eval_batch_size": 128,
+    "eval_shots": 6000,
+    "final_epochs": 100,
+    "final_max_per_class": 1000,
+    "final_seeds": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "force": false,
+    "gradient_clip": 5.0,
+    "no_download": false,
+    "outdir": "qfnn_experiments",
+    "quick": false,
+    "reference_ansatz_depth": 4,
+    "run_ablation": false,
+    "search_batch_sizes": [
+      32,
+      64
+    ],
+    "search_epochs": 30,
+    "search_max_per_class": 300,
+    "search_optimizers": [
+      "adamw",
+      "rmsprop"
+    ],
+    "search_schedulers": [
+      "cosine",
+      "onecycle",
+      "none"
+    ],
+    "search_seed": 271828,
+    "search_seeds": [
+      101,
+      102
+    ],
+    "shot_repeats": 5,
+    "split_seed": 314159,
+    "stage": "final",
+    "study_suffix": "",
+    "test_max_per_class": 0,
+    "train_shots": 6000,
+    "trials": 60,
+    "use_phase": false,
+    "val_fraction": 0.15,
+    "val_per_class": 200,
+    "workers": 0
+  },
+  "classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "core_provenance": {
+    "accelerator_name": null,
+    "allow_nondeterminism": false,
+    "beta_init": 1.0,
+    "cuda_runtime_version": null,
+    "cudnn_version": null,
+    "device": "cpu",
+    "eval_batch_size": 128,
+    "experiment_version": "qfnn-pipeline-2026-08-13-v3",
+    "gradient_clip": 5.0,
+    "numpy_version": "2.5.0",
+    "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+    "reference_ansatz_depth": 4,
+    "source_sha256": "9facd9172f676e57ac0f0cb789fad8a2d374a9229e304e7fdf3cae2e4c8aa7bc",
+    "torch_version": "2.13.0+cpu",
+    "torchvision_version": "0.28.0",
+    "train_shots": 6000,
+    "use_phase": false,
+    "workers": 0
+  },
+  "created_at_local": "2026-08-21 20:51:11",
+  "cuda_available": false,
+  "device": "cpu",
+  "experiment_version": "qfnn-pipeline-2026-08-13-v3",
+  "head": "always-on trainable scalar beta plus eight trainable class biases",
+  "input": "8x8 grayscale amplitude encoding on six work qubits",
+  "model": "QFNN only; no ModelB or external local model module",
+  "optuna": "4.9.0",
+  "phase": "disabled (default unphased architecture)",
+  "python": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "resource_reporting_scope": "logical qubits and reflection/data-oracle counts are abstract oracle-level quantities, not compiled gate counts or two-qubit depths",
+  "search_scope": "substantial validation search; the default sixty trials evaluated under two seeds are not an exhaustive architecture or optimizer search",
+  "selection_protocol": "Optuna and epoch selection use a fixed stratified validation split from official training data. Official test data is loaded only after all final checkpoints for a dataset are fixed.",
+  "source_sha256": "9facd9172f676e57ac0f0cb789fad8a2d374a9229e304e7fdf3cae2e4c8aa7bc",
+  "torch": "2.13.0+cpu",
+  "train_shots": {
+    "gradient": "straight-through estimator in simulator",
+    "sampling": "one multinomial draw over the full final address+ancilla distribution",
+    "tuned": false,
+    "value": 6000
+  }
+}

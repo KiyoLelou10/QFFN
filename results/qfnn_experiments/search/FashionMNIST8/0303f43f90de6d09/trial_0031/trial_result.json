@@ -1,0 +1,42 @@
+{
+  "objective_mean_best_validation_accuracy": 75.40625,
+  "parameter_count": 409,
+  "provenance": {
+    "accelerator_name": null,
+    "allow_nondeterminism": false,
+    "beta_init": 1.0,
+    "cuda_runtime_version": null,
+    "cudnn_version": null,
+    "device": "cpu",
+    "eval_batch_size": 128,
+    "experiment_version": "qfnn-pipeline-2026-08-13-v3",
+    "gradient_clip": 5.0,
+    "numpy_version": "2.5.0",
+    "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+    "reference_ansatz_depth": 4,
+    "source_sha256": "9facd9172f676e57ac0f0cb789fad8a2d374a9229e304e7fdf3cae2e4c8aa7bc",
+    "torch_version": "2.13.0+cpu",
+    "torchvision_version": "0.28.0",
+    "train_shots": 6000,
+    "use_phase": false,
+    "workers": 0
+  },
+  "recipe": {
+    "batch_size": 64,
+    "degree": 2,
+    "depth": 2,
+    "entropy_weight": 0.0001,
+    "label_smoothing": 0.05,
+    "learning_rate": 0.005476387157877308,
+    "optimizer": "rmsprop",
+    "scheduler": "onecycle",
+    "weight_decay": 2.003863612506155e-06
+  },
+  "search_scope": "substantial validation search; not exhaustive",
+  "test_data_used": false,
+  "trial": 31,
+  "validation_accuracy_by_seed": [
+    75.625,
+    75.1875
+  ]
+}

@@ -1,0 +1,7 @@
+* text=auto
+*.db binary
+*.pdf binary
+*.png binary
+*.pt binary
+paper/*.sty -whitespace
+paper/sn-jnl.cls -whitespace
