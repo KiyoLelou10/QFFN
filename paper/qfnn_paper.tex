@@ -1,6 +1,6 @@
 % ============================================================
 % Quantum Machine Intelligence (Springer Nature)
-% Revised manuscript, version 7
+% Revised manuscript
 % ============================================================
 
 \documentclass[pdflatex,sn-mathphys,NameDate,iicol]{sn-jnl}
@@ -29,8 +29,8 @@
   \hypersetup{%
     colorlinks=true,
     allcolors=blue,
-    pdftitle={Coherent Projector-Overlap QFNNs with Chebyshev Responses: Expressivity, Approximation, and Process Lifts},
-    pdfauthor={Andrej Sum-Shik and Peter Thoma}
+    pdftitle={Coherent Projector-Overlap QFNNs with Chebyshev Responses: Expressivity, Approximation, and Coherent Depth},
+    pdfauthor={Andrej Sum-Shik}
   }%
 }
 
@@ -111,14 +111,14 @@
 % ---------------- Front matter ----------------
 \title[Coherent projector-overlap QFNNs]
 {Coherent Projector-Overlap QFNNs with Chebyshev Responses:
-Expressivity, Approximation, and Process Lifts}
+Expressivity, Approximation, and Coherent Depth}
 
 \author*[1]{\fnm{Andrej} \sur{Sum-Shik}}
 \email{asumshik@gmail.com}
-\author[1]{\fnm{Peter} \sur{Thoma}}
 
-\affil[1]{\orgname{Frankfurt University of Applied Sciences},
-  \orgaddress{\city{Frankfurt am Main}, \country{Germany}}}
+\affil[1]{\orgdiv{MSc Programme in Quantum Information Science,
+  Faculty of Science}, \orgname{University of Copenhagen},
+  \orgaddress{\city{Copenhagen}, \country{Denmark}}}
 
 \abstract{
 Variational quantum models combine data encodings, trainable unitaries, and
@@ -151,9 +151,9 @@ framework for neural-style polynomial responses in coherent variational
 quantum architectures.
 }
 
-\keywords{Quantum machine learning, quantum neural networks, activation
-functions, Chebyshev polynomials, alternating reflections, polynomial
-approximation, kernel methods, quantum combs, generalization}
+\keywords{Quantum machine learning, quantum neural networks, Chebyshev
+polynomials, alternating reflections, universal approximation, coherent
+quantum circuits}
 
 \maketitle
 
@@ -1548,18 +1548,24 @@ continues to obey the exact Chebyshev activation law.
 \subsection{Layer definition and retained coherences}
 
 Let the normalized incoming state to layer $\ell$ be
-$\ket{\Phi_x^{(\ell-1)}}$ on all registers retained from previous layers,
-and define its reflection by
+$\ket{\Phi_x^{(\ell-1)}}$ on all registers retained from previous layers.
+For fixed preceding parameters $\theta_{<\ell}$, let
+$U_{\theta_{<\ell}}^{(\ell-1)}(x)$ denote the complete preparation through
+layer $\ell-1$, so that
+$U_{\theta_{<\ell}}^{(\ell-1)}(x)\ket0
+=\ket{\Phi_x^{(\ell-1)}}$. Define the corresponding reflection by
 \begin{equation}
   R_{\Phi}^{(\ell)}
   =\id-2\proj{\Phi_x^{(\ell-1)}}.
   \label{eq:current-reflection}
 \end{equation}
-Because the entire preceding preparation $U_x^{(\ell-1)}$ is known,
+Because this entire preceding preparation, including the fixed trainable
+gates in layers $1,\ldots,\ell-1$, is known,
 \begin{equation}
   R_{\Phi}^{(\ell)}
-  =U_x^{(\ell-1)}(\id-2\proj0)
-   U_x^{(\ell-1)\dagger}.
+  =U_{\theta_{<\ell}}^{(\ell-1)}(x)
+   (\id-2\proj0)
+   U_{\theta_{<\ell}}^{(\ell-1)}(x)^{\dagger}.
   \label{eq:current-reflection-implementation}
 \end{equation}
 This implementability assumption is stronger than access to unknown copies
@@ -1855,8 +1861,8 @@ Theorem, as shown next.
 \subsection{Exact recovery and transfer of approximation}
 \label{sec:deep-transfer}
 
-To make the parameter dependence explicit, write the complete incoming state
-to layer $\ell$ as
+To display the same parameter dependence directly in the response law, write
+the complete incoming state to layer $\ell$ as
 $\ket{\Phi_{\theta_{<\ell}}^{(\ell-1)}(x)}$ and its density operator as
 $\rho_{\theta_{<\ell}}^{(\ell-1)}(x)$. In the next display,
 $Q_j^{(\ell)}(\theta_{\ell,j})$ denotes either a global current reference
@@ -2724,7 +2730,7 @@ KMNIST8
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{qfnn_training_trajectories_v6.png}
+\includegraphics[width=\textwidth]{qfnn_training_trajectories.png}
 \caption{Training trajectories for the validation-selected QFNN recipes,
 shown as mean $\pm$ sample standard deviation over six independently trained
 seeds. Solid blue curves denote online training accuracy obtained with
@@ -2788,29 +2794,51 @@ diagnostics and is available in the repository cited below; the analytic
 theorem statements are established by the proofs in the main text.
 
 % ============================================================
-\section*{Declarations}
+\section*{Statements and Declarations}
 % ============================================================
 
 \subsection*{Funding}
-No funding was received for conducting this study.
+No funds, grants, or other support were received.
 
 \subsection*{Competing interests}
-The authors have no relevant financial or non-financial interests to disclose.
+The author has no relevant financial or non-financial interests to disclose.
+
+\subsection*{Ethics approval}
+Not applicable.
+
+\subsection*{Consent to participate}
+Not applicable.
+
+\subsection*{Consent for publication}
+Not applicable.
 
 \subsection*{Data availability}
-No new dataset was created for this study. The numerical experiments use the
-publicly available MNIST, Fashion-MNIST, and KMNIST datasets, restricted to
-their original labels $0,\ldots,7$.
+No new benchmark dataset was created for this study. The numerical experiments
+use the publicly available MNIST, Fashion-MNIST, and KMNIST datasets,
+restricted to their original labels $0,\ldots,7$. The research data generated
+during this study---including run configurations, hyperparameter-optimization
+records, selected recipes, per-seed histories and checkpoints, aggregate result
+tables, and plotting data---are available in the public repository
+\url{https://github.com/KiyoLelou10/QFNN}.
 
 \subsection*{Code availability}
 The QFNN implementation, theorem sanity checks, and complete reproducibility
 materials for the numerical experiments are available in the public repository
-\url{https://github.com/KiyoLelou10/QFFN}. The archived materials include run configurations, optimization
+\url{https://github.com/KiyoLelou10/QFNN}. The archived materials include run configurations, optimization
 records, selected recipes, per-seed histories and checkpoints, aggregate
 result tables, and plotting data.
 
 \subsection*{Author contributions}
-The authors should insert a contribution statement before submission.
+The author conceived the study, developed the architecture and theoretical
+results, implemented and validated the software, conducted and analyzed the
+numerical experiments, and wrote and revised the manuscript.
+
+\subsection*{Use of generative AI}
+The author used OpenAI ChatGPT and Codex as assistive tools for manuscript
+organization and drafting, literature searches, code development, mathematical
+cross-checking, and language editing. The author critically reviewed and
+verified the final manuscript, references, proofs, software, and numerical
+results and takes full responsibility for the content.
 
 % ============================================================
 % Self-contained bibliography: no external .bib file is required.
@@ -2864,7 +2892,7 @@ Information. AMS, Providence, pp 53--74.
 \bibitem[Cao et~al.(2017)Cao, Guerreschi, and Aspuru-Guzik]{cao2017neuron}
 Cao Y, Guerreschi GG, Aspuru-Guzik A (2017) Quantum neuron: an elementary
 building block for machine learning on quantum computers.
-arXiv:1711.11240. \url{https://arxiv.org/abs/1711.11240}
+arXiv:1711.11240. \url{https://doi.org/10.48550/arXiv.1711.11240}
 
 \bibitem[Caro et~al.(2022)Caro, Huang, Cerezo, Sharma, Sornborger,
 Cincio, and Coles]{caro2022generalization}
@@ -2889,7 +2917,7 @@ quantum networks. Phys Rev A 80:022339.
 Yamamoto, and Ha]{clanuwat2018deep}
 Clanuwat T, Bober-Irizar M, Kitamoto A, Lamb A, Yamamoto K, Ha D (2018) Deep
 learning for classical Japanese literature. arXiv:1812.01718.
-\url{https://arxiv.org/abs/1812.01718}
+\url{https://doi.org/10.48550/arXiv.1812.01718}
 
 \bibitem[Cybenko(1989)]{cybenko1989approximation}
 Cybenko G (1989) Approximation by superpositions of a sigmoidal function.
@@ -2955,7 +2983,7 @@ to document recognition. Proc IEEE 86(11):2278--2324.
 \bibitem[Li et~al.(2024)Li, Salek, Wang, and Chowdhury]{li2024qcpn}
 Li S, Salek MS, Wang Y, Chowdhury M (2024) Quantum-inspired activation
 functions and quantum Chebyshev-polynomial network. arXiv:2404.05901.
-\url{https://arxiv.org/abs/2404.05901}
+\url{https://doi.org/10.48550/arXiv.2404.05901}
 
 \bibitem[Low and Chuang(2017)]{low2017qsp}
 Low GH, Chuang IL (2017) Optimal Hamiltonian simulation by quantum signal
@@ -2999,7 +3027,7 @@ spaces. Phys Rev Lett 122:040504.
 
 \bibitem[Schuld(2021)]{schuld2021kernel}
 Schuld M (2021) Supervised quantum machine learning models are kernel
-methods. arXiv:2101.11020. \url{https://arxiv.org/abs/2101.11020}
+methods. arXiv:2101.11020. \url{https://doi.org/10.48550/arXiv.2101.11020}
 
 \bibitem[Schuld et~al.(2021)Schuld, Sweke, and Meyer]{schuld2021encoding}
 Schuld M, Sweke R, Meyer JJ (2021) Effect of data encoding on the expressive
@@ -3042,7 +3070,7 @@ variational quantum algorithms. Nat Commun 12:6961.
 \bibitem[Xiao et~al.(2017)Xiao, Rasul, and Vollgraf]{xiao2017fashion}
 Xiao H, Rasul K, Vollgraf R (2017) Fashion-MNIST: a novel image dataset for
 benchmarking machine learning algorithms. arXiv:1708.07747.
-\url{https://arxiv.org/abs/1708.07747}
+\url{https://doi.org/10.48550/arXiv.1708.07747}
 
 \end{thebibliography}
 

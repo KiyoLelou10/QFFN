@@ -1,6 +1,6 @@
 # Coherent projector-overlap QFNNs with Chebyshev responses
 
-This repository accompanies the manuscript **“Coherent Projector-Overlap QFNNs with Chebyshev Responses: Expressivity, Approximation, and Process Lifts.”** It contains the reference implementation, theorem-level numerical sanity checks, the complete hyperparameter-search and final-evaluation records, and the Version 7 manuscript source.
+This repository accompanies the manuscript **“Coherent Projector-Overlap QFNNs with Chebyshev Responses: Expressivity, Approximation, and Coherent Depth.”** It contains the reference implementation, theorem-level numerical sanity checks, the complete hyperparameter-search and final-evaluation records, and the manuscript source.
 
 The architecture treats trainable projector overlaps as quantum analogues of pre-activations. Alternating reflections transform an overlap probability \(p\) into an exact Chebyshev response
 
@@ -25,9 +25,10 @@ while retaining the quantum registers coherently so that layers can be composed 
 │   ├── run_config.json
 │   └── selected_recipes.{json,md}
 └── paper/
-    ├── qfnn_chebyshev_revised_v7.tex
-    ├── qfnn_chebyshev_revised_v7.pdf
-    └── Springer/LaTeX support files
+    ├── qfnn_paper.tex
+    ├── qfnn_paper.pdf
+    ├── qfnn_training_trajectories.png
+    └── Springer Nature/LaTeX support files
 ```
 
 The complete artifact directory is committed in unpacked form so that individual configurations, trials, checkpoints, and reports can be inspected directly. See [`results/README.md`](results/README.md) for a map of the experiment records.

@@ -1,16 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software or its results, please cite the accompanying manuscript and this repository."
-title: "QFNN: coherent projector-overlap quantum feedforward neural networks with Chebyshev responses"
+title: "Coherent Projector-Overlap QFNNs with Chebyshev Responses: Expressivity, Approximation, and Coherent Depth"
 type: software
 authors:
   - family-names: "Sum-Shik"
     given-names: "Andrej"
-  - family-names: "Thoma"
-    given-names: "Peter"
-repository-code: "https://github.com/KiyoLelou10/QFFN"
-url: "https://github.com/KiyoLelou10/QFFN"
+repository-code: "https://github.com/KiyoLelou10/QFNN"
+url: "https://github.com/KiyoLelou10/QFNN"
 license: MIT
-version: 1.0.0
 date-released: 2026-08-27
 keywords:
   - quantum machine learning
